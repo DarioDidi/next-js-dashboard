@@ -13,11 +13,6 @@ export default async function InvoicesTable({
 }) {
   const invoices = await fetchFilteredInvoices(query, currentPage);
 
-  console.log("in invoices table component");
-  for (let invoice of invoices) {
-    console.log("id:", invoice.id);
-  }
-
   return (
     <div className="mt-6 flow-root">
       <div className="inline-block min-w-full align-middle">
