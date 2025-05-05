@@ -9,7 +9,8 @@ async function dropTable() {
   try {
     await sql`DROP TABLE IF EXISTS revenue, users, customers, invoices;`;
     Response.json({ message: "Table dropped successfully" });
-  } catch (error) {
+  } catch (e) {
+    console.log("error:", e);
     Response.json("failed to drop table");
   }
   console.log("returning after drop table");
@@ -172,7 +173,7 @@ async function seedRevenue() {
 //  await seedRevenue();
 //})();
 
-export async function GET(/*req: NextRequest, res: NextResponse*/) {
+export async function GET() {
   console.log("IN SEED DB postgres GET");
 
   try {
@@ -184,7 +185,7 @@ export async function GET(/*req: NextRequest, res: NextResponse*/) {
       seedInvoices(),
       seedRevenue(),
     ]);
-    console.log("after all awaits, responding");
+    console.log("after all awaits in SEED, responding", result);
 
     return Response.json({ message: "Database seeded successfully" });
   } catch (error) {

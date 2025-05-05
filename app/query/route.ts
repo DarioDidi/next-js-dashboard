@@ -13,9 +13,7 @@ async function listInvoices() {
 	return data;
 }
 
-export async function GET(context: any) {
-	const { req, res } = context;
-
+export async function GET() {
 	try {
 		return Response.json(await listInvoices());
 	} catch (error) {
