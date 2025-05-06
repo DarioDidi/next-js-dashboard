@@ -12,7 +12,6 @@ import { Button } from '@/app/ui/button';
 import { createInvoice, State } from '@/app/lib/actions';
 
 import { useActionState } from 'react';
-import { string } from 'zod';
 
 export default function Form({ customers }: { customers: CustomerField[] }) {
   const initialState: State = { message: null, errors: {} };
